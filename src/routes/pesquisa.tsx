@@ -33,7 +33,7 @@ function Pesquisa() {
   const [done, setDone] = useState(false);
   const nav = useNavigate();
   useEffect(() => setDone(jaRespondeu()), []);
-  const step = STEPS[i];
+  const step = STEPS[Math.min(i, STEPS.length - 1)]!;
 
   if (done)
     return (
