@@ -30,8 +30,8 @@
  */
 
 @theme inline {
-  --font-display: "Fraunces", Georgia, serif;
-  --font-sans: "Public Sans", system-ui, sans-serif;
+  --font-display: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-sans: "Atkinson Hyperlegible", system-ui, sans-serif;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -119,8 +119,15 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    /* Atkinson Hyperlegible is a wide face: generous spacing, no negative tracking. */
+    letter-spacing: 0.01em;
+    line-height: 1.65;
   }
-  h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: 0;
+    line-height: 1.15;
+  }
 }
 
 @utility option-card {
