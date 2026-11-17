@@ -14,11 +14,11 @@ function seed(): Resposta[] {
   const melhorias = ["Mais médicos no posto", "Asfaltar as ruas do bairro", "Iluminação na praça", "Remédios na farmácia básica", "Coleta de lixo mais frequente", "Creche em tempo integral", "Policiamento à noite", "Cursos para jovens"];
   let s = 7;
   const r = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
-  const pick = <T,>(a: T[], w?: number[]) => {
-    if (!w) return a[Math.floor(r() * a.length)];
+  const pick = <T,>(a: T[], w?: number[]): T => {
+    if (!w) return a[Math.floor(r() * a.length)]!;
     const t = w.reduce((x, y) => x + y, 0); let v = r() * t;
-    for (let i = 0; i < a.length; i++) { v -= w[i]; if (v <= 0) return a[i]; }
-    return a[0];
+    for (let i = 0; i < a.length; i++) { v -= w[i]!; if (v <= 0) return a[i]!; }
+    return a[0]!;
   };
   return Array.from({ length: 214 }, () => ({
     bairro: pick(BAIRROS, [30, 15, 18, 14, 16, 8]),
