@@ -5,10 +5,10 @@ import { CITY } from "@/lib/survey";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Observatório Cidadão — Sua voz sobre a cidade" },
-      { name: "description", content: "Pesquisa rápida e anônima sobre os problemas e prioridades do seu município." },
-      { property: "og:title", content: "Observatório Cidadão — Sua voz sobre a cidade" },
-      { property: "og:description", content: "Responda em 2 minutos e veja o retrato da sua cidade." },
+      { title: "Observatório Cidadão — Sua voz sobre Espacinha" },
+      { name: "description", content: "Pesquisa rápida e anônima sobre os problemas e prioridades da sua localidade em Espacinha." },
+      { property: "og:title", content: "Observatório Cidadão — Sua voz sobre Espacinha" },
+      { property: "og:description", content: "Responda em 2 minutos e veja o retrato da sua localidade." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

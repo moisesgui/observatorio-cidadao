@@ -7,7 +7,7 @@ export const IDADES = ["16–24", "25–34", "35–49", "50–64", "65+", "Outro
 
 export type Resposta = { bairro: string; idade: string; area: string; servicos: string; gestao: string; melhoria: string; data: string; outros?: Record<string, string>; audios?: Record<string, string> | undefined };
 
-const KEY = "oc-respostas";
+const KEY = "oc-respostas-v2";
 const DONE = "oc-respondeu";
 
 function seed(): Resposta[] {
