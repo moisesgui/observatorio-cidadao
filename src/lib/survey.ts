@@ -1,11 +1,11 @@
-export const CITY = "Vila Esperança";
-export const BAIRROS = ["Centro", "Alto da Serra", "Beira-Rio", "Jardim das Flores", "Vila Nova", "Zona Rural"];
+export const CITY = "Distrito de Mandu";
+export const BAIRROS = ["Centro", "Alto da Serra", "Beira-Rio", "Jardim das Flores", "Vila Nova", "Zona Rural", "Outro"];
 export const AREAS = ["Saúde", "Educação", "Segurança", "Infraestrutura e estradas", "Limpeza pública", "Emprego e renda", "Esporte e lazer", "Outra"];
-export const SERVICOS = ["Ótimos", "Bons", "Regulares", "Ruins", "Péssimos", "Não sei avaliar"];
-export const GESTAO = ["Sim", "Em parte", "Não", "Não sei avaliar"];
-export const IDADES = ["16–24", "25–34", "35–49", "50–64", "65+"];
+export const SERVICOS = ["Ótimos", "Bons", "Regulares", "Ruins", "Péssimos", "Não sei avaliar", "Outro"];
+export const GESTAO = ["Sim", "Em parte", "Não", "Não sei avaliar", "Outro"];
+export const IDADES = ["16–24", "25–34", "35–49", "50–64", "65+", "Outro"];
 
-export type Resposta = { bairro: string; idade: string; area: string; servicos: string; gestao: string; melhoria: string; data: string };
+export type Resposta = { bairro: string; idade: string; area: string; servicos: string; gestao: string; melhoria: string; data: string; outros?: Record<string, string>; audios?: Record<string, string> | undefined };
 
 const KEY = "oc-respostas";
 const DONE = "oc-respondeu";
@@ -39,7 +39,8 @@ export function getRespostas(): Resposta[] {
 }
 export function addResposta(r: Resposta) {
   const all = getRespostas(); all.push(r);
-  localStorage.setItem(KEY, JSON.stringify(all)); localStorage.setItem(DONE, "1");
+  try { localStorage.setItem(KEY, JSON.stringify(all)); }
+  catch { all[all.length - 1] = { ...r, audios: undefined }; localStorage.setItem(KEY, JSON.stringify(all)); } localStorage.setItem(DONE, "1");
 }
 export const jaRespondeu = () => typeof window !== "undefined" && localStorage.getItem(DONE) === "1";
 
