@@ -9,7 +9,7 @@ export const Route = createFileRoute("/resultados")({
       { title: "Resultados — Observatório Cidadão" },
       { name: "description", content: "Painel público com a percepção dos participantes sobre a cidade." },
       { property: "og:title", content: "Resultados — Observatório Cidadão" },
-      { property: "og:description", content: "Veja os principais problemas apontados por bairro." },
+      { property: "og:description", content: "Veja os principais problemas apontados por localidade." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -64,7 +64,7 @@ function Resultados() {
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">Áreas que mais precisam melhorar</h2><Bars data={areas} /></section>
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">A gestão está resolvendo os problemas?</h2><Bars data={gestao} /></section>
-          <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">Participação por bairro</h2><Bars data={porBairro} /></section>
+          <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">Participação por localidade</h2><Bars data={porBairro} /></section>
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">O que as pessoas pedem</h2>
             <ul className="space-y-3">{recentes.map((r, i) => <li key={i} className="border-l-2 border-accent pl-3">{r.audios?.["melhoria"] ? <audio controls src={r.audios["melhoria"]} className="w-full" /> : <p>“{r.melhoria}”</p>}<p className="text-xs text-muted-foreground">{r.bairro} · {r.idade} anos</p></li>)}</ul>
           </section>

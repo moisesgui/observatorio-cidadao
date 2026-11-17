@@ -36,7 +36,7 @@ function Index() {
         </section>
         <section className="mt-24 grid gap-6 md:grid-cols-3">
           {[
-            ["01", "Responda", "4 perguntas objetivas sobre saúde, serviços e prioridades do seu bairro."],
+            ["01", "Responda", "4 perguntas objetivas sobre saúde, serviços e prioridades da sua localidade."],
             ["02", "Some sua voz", "Cada resposta ajuda a montar um retrato real dos problemas de cada região."],
             ["03", "Acompanhe", "Os resultados ficam públicos, com número de participantes e limitações."],
           ].map(([n, t, d]) => (

@@ -1,5 +1,5 @@
-export const CITY = "Distrito de Mandu";
-export const BAIRROS = ["Centro", "Alto da Serra", "Beira-Rio", "Jardim das Flores", "Vila Nova", "Zona Rural", "Outro"];
+export const CITY = "Espacinha";
+export const BAIRROS = ["Pereiros", "Peixe", "Mata Fresca", "Pitombeiras", "Retiro", "Espacinha de Baixo", "Patos", "Canafístula", "Extremas", "Assentamento Santana", "Outro"];
 export const AREAS = ["Saúde", "Educação", "Segurança", "Infraestrutura e estradas", "Limpeza pública", "Emprego e renda", "Esporte e lazer", "Outra"];
 export const SERVICOS = ["Ótimos", "Bons", "Regulares", "Ruins", "Péssimos", "Não sei avaliar", "Outro"];
 export const GESTAO = ["Sim", "Em parte", "Não", "Não sei avaliar", "Outro"];
@@ -11,7 +11,7 @@ const KEY = "oc-respostas";
 const DONE = "oc-respondeu";
 
 function seed(): Resposta[] {
-  const melhorias = ["Mais médicos no posto", "Asfaltar as ruas do bairro", "Iluminação na praça", "Remédios na farmácia básica", "Coleta de lixo mais frequente", "Creche em tempo integral", "Policiamento à noite", "Cursos para jovens"];
+  const melhorias = ["Mais médicos no posto", "Asfaltar as ruas da localidade", "Iluminação na praça", "Remédios na farmácia básica", "Coleta de lixo mais frequente", "Creche em tempo integral", "Policiamento à noite", "Cursos para jovens"];
   let s = 7;
   const r = () => ((s = (s * 9301 + 49297) % 233280) / 233280);
   const pick = <T,>(a: T[], w?: number[]): T => {
@@ -21,7 +21,7 @@ function seed(): Resposta[] {
     return a[0]!;
   };
   return Array.from({ length: 214 }, () => ({
-    bairro: pick(BAIRROS, [30, 15, 18, 14, 16, 8]),
+    bairro: pick(BAIRROS, [14, 10, 9, 8, 7, 22, 8, 9, 6, 7, 3]),
     idade: pick(IDADES, [20, 25, 28, 18, 9]),
     area: pick(AREAS, [34, 14, 16, 18, 7, 8, 2, 1]),
     servicos: pick(SERVICOS, [5, 20, 32, 24, 14, 5]),

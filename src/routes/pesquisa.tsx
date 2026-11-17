@@ -10,7 +10,7 @@ export const Route = createFileRoute("/pesquisa")({
       { title: "Responder pesquisa — Observatório Cidadão" },
       { name: "description", content: "Pesquisa anônima de 2 minutos sobre a sua cidade. Dá para ouvir as perguntas e responder por áudio." },
       { property: "og:title", content: "Responder pesquisa — Observatório Cidadão" },
-      { property: "og:description", content: "Dê sua opinião sobre os serviços públicos e prioridades do seu bairro." },
+      { property: "og:description", content: "Dê sua opinião sobre os serviços públicos e prioridades da sua localidade." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
     ],
@@ -21,10 +21,10 @@ export const Route = createFileRoute("/pesquisa")({
 type Key = "bairro" | "idade" | "area" | "servicos" | "gestao" | "melhoria";
 type Step = { key: Key; title: string; options?: string[] };
 const STEPS: Step[] = [
-  { key: "bairro", title: "Em qual bairro ou comunidade você mora?", options: BAIRROS },
+  { key: "bairro", title: "Em qual localidade você mora?", options: BAIRROS },
   { key: "idade", title: "Qual a sua faixa de idade?", options: IDADES },
-  { key: "area", title: "Qual área mais precisa de melhorias no município?", options: AREAS },
-  { key: "servicos", title: "Como você avalia os serviços públicos da sua cidade?", options: SERVICOS },
+  { key: "area", title: "Qual área mais precisa de melhorias na sua localidade?", options: AREAS },
+  { key: "servicos", title: "Como você avalia os serviços públicos da sua localidade?", options: SERVICOS },
   { key: "gestao", title: "Você acredita que a atual gestão está trabalhando para resolver os problemas da população?", options: GESTAO },
   { key: "melhoria", title: "Se pudesse pedir uma melhoria ao gestor municipal, qual seria? Pode escrever ou mandar um áudio." },
 ];
