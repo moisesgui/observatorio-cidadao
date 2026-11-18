@@ -10,12 +10,25 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteRouteImport } from './routes/admin/route'
 import { Route as PesquisaRouteImport } from './routes/pesquisa'
 import { Route as ResultadosRouteImport } from './routes/resultados'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminCampaignsCampaignIdRouteImport } from './routes/admin/campaigns/$campaignId'
+import { Route as AdminCampaignsNewRouteImport } from './routes/admin/campaigns/new'
+import { Route as CSlugIndexRouteImport } from './routes/c/$slug/index'
+import { Route as CSlugPesquisaRouteImport } from './routes/c/$slug/pesquisa'
+import { Route as CSlugResultadosRouteImport } from './routes/c/$slug/resultados'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminRouteRoute = AdminRouteRouteImport.update({
+  id: '/admin',
+  path: '/admin',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PesquisaRoute = PesquisaRouteImport.update({
@@ -28,35 +41,131 @@ const ResultadosRoute = ResultadosRouteImport.update({
   path: '/resultados',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const AdminCampaignsCampaignIdRoute =
+  AdminCampaignsCampaignIdRouteImport.update({
+    id: '/campaigns/$campaignId',
+    path: '/campaigns/$campaignId',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+const AdminCampaignsNewRoute = AdminCampaignsNewRouteImport.update({
+  id: '/campaigns/new',
+  path: '/campaigns/new',
+  getParentRoute: () => AdminRouteRoute,
+} as any)
+const CSlugIndexRoute = CSlugIndexRouteImport.update({
+  id: '/c/$slug/',
+  path: '/c/$slug/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CSlugPesquisaRoute = CSlugPesquisaRouteImport.update({
+  id: '/c/$slug/pesquisa',
+  path: '/c/$slug/pesquisa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CSlugResultadosRoute = CSlugResultadosRouteImport.update({
+  id: '/c/$slug/resultados',
+  path: '/c/$slug/resultados',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/pesquisa': typeof PesquisaRoute
   '/resultados': typeof ResultadosRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/campaigns/$campaignId': typeof AdminCampaignsCampaignIdRoute
+  '/admin/campaigns/new': typeof AdminCampaignsNewRoute
+  '/c/$slug/pesquisa': typeof CSlugPesquisaRoute
+  '/c/$slug/resultados': typeof CSlugResultadosRoute
+  '/c/$slug/': typeof CSlugIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/pesquisa': typeof PesquisaRoute
   '/resultados': typeof ResultadosRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin': typeof AdminIndexRoute
+  '/admin/campaigns/$campaignId': typeof AdminCampaignsCampaignIdRoute
+  '/admin/campaigns/new': typeof AdminCampaignsNewRoute
+  '/c/$slug/pesquisa': typeof CSlugPesquisaRoute
+  '/c/$slug/resultados': typeof CSlugResultadosRoute
+  '/c/$slug': typeof CSlugIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRouteRouteWithChildren
   '/pesquisa': typeof PesquisaRoute
   '/resultados': typeof ResultadosRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/': typeof AdminIndexRoute
+  '/admin/campaigns/$campaignId': typeof AdminCampaignsCampaignIdRoute
+  '/admin/campaigns/new': typeof AdminCampaignsNewRoute
+  '/c/$slug/pesquisa': typeof CSlugPesquisaRoute
+  '/c/$slug/resultados': typeof CSlugResultadosRoute
+  '/c/$slug/': typeof CSlugIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pesquisa' | '/resultados'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/pesquisa'
+    | '/resultados'
+    | '/admin/login'
+    | '/admin/'
+    | '/admin/campaigns/$campaignId'
+    | '/admin/campaigns/new'
+    | '/c/$slug/pesquisa'
+    | '/c/$slug/resultados'
+    | '/c/$slug/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pesquisa' | '/resultados'
-  id: '__root__' | '/' | '/pesquisa' | '/resultados'
+  to:
+    | '/'
+    | '/pesquisa'
+    | '/resultados'
+    | '/admin/login'
+    | '/admin'
+    | '/admin/campaigns/$campaignId'
+    | '/admin/campaigns/new'
+    | '/c/$slug/pesquisa'
+    | '/c/$slug/resultados'
+    | '/c/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/pesquisa'
+    | '/resultados'
+    | '/admin/login'
+    | '/admin/'
+    | '/admin/campaigns/$campaignId'
+    | '/admin/campaigns/new'
+    | '/c/$slug/pesquisa'
+    | '/c/$slug/resultados'
+    | '/c/$slug/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRouteRoute: typeof AdminRouteRouteWithChildren
   PesquisaRoute: typeof PesquisaRoute
   ResultadosRoute: typeof ResultadosRoute
+  CSlugPesquisaRoute: typeof CSlugPesquisaRoute
+  CSlugResultadosRoute: typeof CSlugResultadosRoute
+  CSlugIndexRoute: typeof CSlugIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,6 +175,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/pesquisa': {
@@ -82,13 +198,84 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ResultadosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/campaigns/$campaignId': {
+      id: '/admin/campaigns/$campaignId'
+      path: '/campaigns/$campaignId'
+      fullPath: '/admin/campaigns/$campaignId'
+      preLoaderRoute: typeof AdminCampaignsCampaignIdRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/admin/campaigns/new': {
+      id: '/admin/campaigns/new'
+      path: '/campaigns/new'
+      fullPath: '/admin/campaigns/new'
+      preLoaderRoute: typeof AdminCampaignsNewRouteImport
+      parentRoute: typeof AdminRouteRoute
+    }
+    '/c/$slug/': {
+      id: '/c/$slug/'
+      path: '/c/$slug'
+      fullPath: '/c/$slug/'
+      preLoaderRoute: typeof CSlugIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/c/$slug/pesquisa': {
+      id: '/c/$slug/pesquisa'
+      path: '/c/$slug/pesquisa'
+      fullPath: '/c/$slug/pesquisa'
+      preLoaderRoute: typeof CSlugPesquisaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/c/$slug/resultados': {
+      id: '/c/$slug/resultados'
+      path: '/c/$slug/resultados'
+      fullPath: '/c/$slug/resultados'
+      preLoaderRoute: typeof CSlugResultadosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
+interface AdminRouteRouteChildren {
+  AdminLoginRoute: typeof AdminLoginRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  AdminCampaignsCampaignIdRoute: typeof AdminCampaignsCampaignIdRoute
+  AdminCampaignsNewRoute: typeof AdminCampaignsNewRoute
+}
+
+const AdminRouteRouteChildren: AdminRouteRouteChildren = {
+  AdminLoginRoute: AdminLoginRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  AdminCampaignsCampaignIdRoute: AdminCampaignsCampaignIdRoute,
+  AdminCampaignsNewRoute: AdminCampaignsNewRoute,
+}
+
+const AdminRouteRouteWithChildren = AdminRouteRoute._addFileChildren(
+  AdminRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRouteRoute: AdminRouteRouteWithChildren,
   PesquisaRoute: PesquisaRoute,
   ResultadosRoute: ResultadosRoute,
+  CSlugPesquisaRoute: CSlugPesquisaRoute,
+  CSlugResultadosRoute: CSlugResultadosRoute,
+  CSlugIndexRoute: CSlugIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
