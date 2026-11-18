@@ -13,8 +13,8 @@ Plataforma de pesquisa cidadã anônima para escutar prioridades da população 
 Requer Node.js **22.12+** (recomendado para `@tanstack/react-start`).
 
 ```sh
-git clone https://github.com/moisesgui/minhavozimporta.git
-cd minhavozimporta
+git clone https://github.com/moisesgui/observatorio-cidadao.git
+cd observatorio-cidadao
 npm install
 npm run dev
 ```
