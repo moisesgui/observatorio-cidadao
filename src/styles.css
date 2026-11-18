@@ -122,6 +122,12 @@
     /* Atkinson Hyperlegible is a wide face: generous spacing, no negative tracking. */
     letter-spacing: 0.01em;
     line-height: 1.65;
+    position: relative;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+    background-image: var(--fundo-nordeste); background-size: 520px; background-repeat: repeat;
+    opacity: 0.09;
   }
   h1, h2, h3 {
     font-family: var(--font-display);

@@ -31,7 +31,7 @@ function Bars({ data }: { data: { label: string; pct: number; count: number }[] 
   );
 }
 
-const DONUT_CORES: Record<string, string> = { "Sim": "var(--chart-1)", "Em parte": "var(--chart-3)", "Não": "var(--chart-2)", "Não sei avaliar": "var(--chart-5)", "Outro": "var(--chart-4)" };
+const DONUT_CORES: Record<string, string> = { "Sim": "var(--chart-1)", "Em parte": "var(--chart-3)", "Não": "var(--chart-2)", "Não sei avaliar": "var(--chart-5)", "Outro": "var(--chart-4)", "Ótimos": "var(--chart-1)", "Bons": "var(--chart-4)", "Regulares": "var(--chart-3)", "Ruins": "var(--chart-2)", "Péssimos": "var(--destructive)" };
 
 function Donut({ data }: { data: { label: string; pct: number; count: number }[] }) {
   const total = data.reduce((a, b) => a + b.count, 0);
@@ -104,6 +104,7 @@ function Resultados() {
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">Áreas que mais precisam melhorar</h2><Bars data={areas} /></section>
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">A gestão está resolvendo os problemas?</h2><Donut data={gestao} /></section>
+          <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">Avaliação geral dos serviços públicos</h2><Donut data={serv} /></section>
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">Participação por localidade</h2><Bars data={porBairro} /></section>
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">O que as pessoas pedem</h2>
             <ul className="space-y-3">{recentes.map((r, i) => <li key={i} className="border-l-2 border-accent pl-3">{r.audios?.["melhoria"] ? <audio controls src={r.audios["melhoria"]} className="w-full" /> : <p>“{r.melhoria}”</p>}<p className="text-xs text-muted-foreground">{r.bairro} · {r.idade} anos</p></li>)}</ul>

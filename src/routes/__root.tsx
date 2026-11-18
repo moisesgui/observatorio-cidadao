@@ -11,6 +11,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import fundo from "../assets/fundo-nordeste.jpg";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -112,7 +113,7 @@ function RootShell({ children }: { children: ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body>
+      <body style={{ ["--fundo-nordeste" as string]: `url(${fundo})` }}>
         {children}
         <Scripts />
       </body>
