@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useMemo, useState } from "react";
 import { SiteHeader } from "@/components/SiteHeader";
+import { MapaRespostas } from "@/components/MapaRespostas";
 import { AREAS, BAIRROS, CITY, GESTAO, SERVICOS, contar, getRespostas, type Resposta } from "@/lib/survey";
 
 export const Route = createFileRoute("/resultados")({
@@ -61,6 +62,11 @@ function Resultados() {
             </div>
           ))}
         </div>
+        <section className="mt-6 rounded-[var(--radius)] border border-border bg-card p-6">
+          <h2 className="text-xl font-bold">Onde as pessoas estão respondendo</h2>
+          <p className="mb-4 mt-1 text-sm text-muted-foreground">Cada círculo mostra o total de uma localidade — nunca a casa de ninguém. Quanto maior e mais forte a cor, mais respostas. Toque para filtrar.</p>
+          <MapaRespostas data={porBairro} selecionada={bairro} onSelect={setBairro} />
+        </section>
         <div className="mt-6 grid gap-6 md:grid-cols-2">
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">Áreas que mais precisam melhorar</h2><Bars data={areas} /></section>
           <section className="rounded-[var(--radius)] border border-border bg-card p-6"><h2 className="mb-5 text-xl font-bold">A gestão está resolvendo os problemas?</h2><Bars data={gestao} /></section>
