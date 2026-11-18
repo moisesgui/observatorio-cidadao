@@ -1,5 +1,5 @@
 export const CITY = "Espacinha";
-export const BAIRROS = ["Pereiros", "Peixe", "Mata Fresca", "Pitombeiras", "Retiro", "Espacinha de Baixo", "Patos", "Canafístula", "Extremas", "Assentamento Santana", "Outro"];
+export const BAIRROS = ["Pereiros", "Peixe", "Mata Fresca", "Pitombeiras", "Retiro", "Espacinha de Baixo", "Patos", "Canafístula", "Extremas", "Outro"];
 export const AREAS = ["Saúde", "Educação", "Segurança", "Infraestrutura e estradas", "Limpeza pública", "Emprego e renda", "Esporte e lazer", "Outra"];
 export const SERVICOS = ["Ótimos", "Bons", "Regulares", "Ruins", "Péssimos", "Não sei avaliar", "Outro"];
 export const GESTAO = ["Sim", "Em parte", "Não", "Não sei avaliar", "Outro"];
@@ -7,7 +7,7 @@ export const IDADES = ["16–24", "25–34", "35–49", "50–64", "65+", "Outro
 
 export type Resposta = { bairro: string; idade: string; area: string; servicos: string; gestao: string; melhoria: string; data: string; outros?: Record<string, string>; audios?: Record<string, string> | undefined };
 
-const KEY = "oc-respostas-v2";
+const KEY = "oc-respostas-v3";
 const DONE = "oc-respondeu";
 
 function seed(): Resposta[] {
@@ -21,7 +21,7 @@ function seed(): Resposta[] {
     return a[0]!;
   };
   return Array.from({ length: 214 }, () => ({
-    bairro: pick(BAIRROS, [14, 10, 9, 8, 7, 22, 8, 9, 6, 7, 3]),
+    bairro: pick(BAIRROS, [14, 10, 9, 8, 7, 22, 8, 9, 6, 3]),
     idade: pick(IDADES, [20, 25, 28, 18, 9]),
     area: pick(AREAS, [34, 14, 16, 18, 7, 8, 2, 1]),
     servicos: pick(SERVICOS, [5, 20, 32, 24, 14, 5]),
