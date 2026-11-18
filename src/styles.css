@@ -127,7 +127,7 @@
   body::before {
     content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background-image: var(--fundo-nordeste); background-size: 520px; background-repeat: repeat;
-    opacity: 0.09;
+    opacity: 0.045;
   }
   h1, h2, h3 {
     font-family: var(--font-display);
