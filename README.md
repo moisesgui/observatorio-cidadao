@@ -1,26 +1,32 @@
-# Minhavozimporta
+# Minha Voz Importa (Observatório Cidadão)
 
-Implement exactly the screenshot and nothing else
+Plataforma de pesquisa cidadã anônima para escutar prioridades da população — começando por Espacinha.
 
-This project was built with [Lovable](https://lovable.dev).
+## Stack
 
-**Live app**: https://minhavozimporta.lovable.app
+- [TanStack Start](https://tanstack.com/start) + React 19
+- Tailwind CSS 4
+- Leaflet / OpenStreetMap nos resultados
 
-## Build with Lovable
+## Desenvolvimento local
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2416e03b-43fa-4c66-9ec6-e08eb3aaebd9).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Requer Node.js **22.12+** (recomendado para `@tanstack/react-start`).
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+git clone https://github.com/moisesgui/minhavozimporta.git
+cd minhavozimporta
+npm install
 npm run dev
 ```
+
+A aplicação sobe em `http://localhost:8080`.
+
+## Scripts
+
+| Comando        | Descrição              |
+| -------------- | ---------------------- |
+| `npm run dev`  | Servidor de desenvolvimento |
+| `npm run build`| Build de produção      |
+| `npm run preview` | Preview do build   |
+| `npm test`     | Testes (Vitest)        |
+| `npm run lint` | ESLint                 |
